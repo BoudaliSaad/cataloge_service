@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
  use app\Filament\Resources\UtilisateurResource\Widgets\UtilisateurStatsOverview;
+ use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 class UtilisateurResource extends Resource
 {
     protected static ?string $model = Utilisateur::class;
@@ -54,6 +55,7 @@ class UtilisateurResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
+                ExportBulkAction::make()
             ]);
     }
     

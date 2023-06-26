@@ -7,6 +7,7 @@ use App\Filament\Resources\AchatResource\RelationManagers;
 use App\Models\Achat;
 use App\Models\Produit;
 use Illuminate\Support\Str;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\DateTimePicker;
@@ -73,9 +74,10 @@ class AchatResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make(),ExportBulkAction::make()
             ]);
     }
     
